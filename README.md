@@ -106,8 +106,8 @@ on what was already available in good quantities at JLC.
 ### Protection circuitry
 
 The 5V fuse and USB protection components have been carried forward from the
-original RP2040-based design and have been taken from
-[this][RP2040DesignGuide] RP2040 design guide.
+original RP2040-based design and have been taken from [this][RP2040DesignGuide]
+RP2040 design guide.
 
 [RFR1Replacement]: https://github.com/Cipulot/RF_R1_8-9Xu
 [RP2040DesignGuide]: https://github.com/Sleepdealr/RP2040-designguide
@@ -211,9 +211,9 @@ License
 
 Copyright © 2022 Wilhelm Schuster
 
-The PCB design is licensed under the CERN-OHL-S v2. See the LICENSE file in
-each of the revision folders for the license text. This license is strongly
-reciprocal and is similar in spirit to the GPL, but specifically focusing on
+The PCB design is licensed under the CERN-OHL-S v2. See the LICENSE file in each
+of the revision folders for the license text. This license is strongly
+reciprocal and is similar in spirit to the GPL, but specifically focuses on
 hardware.
 
 The firmware portion of this project is licensed under GPL-2 in accordance with
