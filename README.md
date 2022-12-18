@@ -1,4 +1,4 @@
-Leopold FC980C replacement controller
+Leopold FC980C Replacement Controller
 =====================================
 
 This PCB replaces the controller of the Leopold FC980C keyboard to allow running
@@ -48,17 +48,20 @@ The SWD header is optional and can be left unsoldered.
 
 The connector labeled KEYBOARD is only available for surface mounting and
 unfortunately not available at JLC for assembly (at least at the time of
-design). Hand soldering is a bit more challenging for this connector
-unfortunately. Make sure to use a healthy dose of flux and fine solder wire.
+design). Hand soldering is a bit more challenging for this connector. Make sure
+to use a healthy dose of flux and fine solder wire.
 
 Production
 ----------
 
 While the PCB itself can be manufactured by a number of PCB houses, component
-selection and SMD assembly is made with [JLCPCB][JLC] in mind. The production
-folder for each revision should include the necessary BOM and CPL files in
-addition to the Gerbers. The board parameters are specified in the PCB design
-file (the main parameters being a board thickness of 1.6mm and 2 copper layers).
+selection and SMD assembly is made with [JLCPCB][JLC] in mind. The jlcpcb folder
+for each revision should include the necessary BOM and CPL files in addition to
+the Gerbers. The board parameters are specified in the PCB design file (the main
+parameters being a board thickness of 1.6mm and 2 copper layers).
+
+The EEPROM (U4) and accompanying decoupling capacitor (C6) are optional. The
+board should work without those populated.
 
 [JLC]: https://jlcpcb.com/
 
@@ -73,7 +76,7 @@ and I2C level shifter have not been evaluated for alternative parts.
 The USB and KEYBOARD connectors interface with the existing connectors used in
 the FC980C and cannot be substituted.
 
-I don't tend to sell this controller PCB by myself and as such everyone who is
+I don't intend to sell this controller PCB by myself and as such everyone who is
 interested in the design is meant to order this directly from JLC for
 themselves. As such, I've tried to minimize cost for low quantity production
 runs. JLC has the concept of extended and basic parts where the former incurs a
@@ -108,6 +111,17 @@ original RP2040-based design and have been taken from
 [RFR1Replacement]: https://github.com/Cipulot/RF_R1_8-9Xu
 [RP2040DesignGuide]: https://github.com/Sleepdealr/RP2040-designguide
 
+### USB traces
+
+USB trace width has been calculated using the KiCad built-in calculator
+following a [guide on the Digikey blog][DigikeyUSBTraceGuide]. The wide traces
+are caused by board design being two layers and having a thickness of 1.6mm.
+This is most likely overkill as the bandwidth requirements are very low for a
+keyboard. Reviewing a number of other boards, none were using USB-specific trace
+widths.
+
+[DigikeyUSBTraceGuide]: https://www.digikey.de/en/maker/projects/how-to-route-differential-pairs-in-kicad-for-usb/45b99011f5d34879ae1831dce1f13e93
+
 Errata
 ------
 
@@ -119,15 +133,18 @@ Revisions
 
 ### Revision 1
 
-First design that has a chance to actually work in the FC980C. Switch to
-STM32F401 microcontroller. This MCU saves a couple of components compared to the
-RP2040, such as USB series resistors and external flash.
+First design that has a chance to actually work in the FC980C. Switch to a
+STM32F401 microcontroller. This MCU allows saving a couple of components
+compared to the RP2040, such as USB termination resistors and external flash.
+
+One notable addition compared to the previous revision is an optional 64Kb
+EEPROM.
 
 **Sample tested and working:** not yet
 
 ### Revision 0
 
-![rev0 PCB][img/rev0-board-render.png]
+![rev0 PCB](img/rev0-board-render.png)
 
 The first version of this PCB uses a RP2040 controller. Unfortunately, the
 FC980C electronics rely on the MCU to be 5V tolerant. I have noticed this fact
@@ -156,10 +173,36 @@ that has been [ported][QMKFC980C] to QMK.
 [TMKFC980C]: https://github.com/tmk/tmk_keyboard/tree/master/keyboard/fc980c
 [QMKFC980C]: https://github.com/qmk/qmk_firmware/tree/f21443d6a2be8e2068164f0f3646a175ffed2df4/keyboards/fc980c
 
+Resources
+---------
+
+These are various resources, that were helped me design my first PCB:
+
+- STM AN2867 - Oscillator design guide for STM8S, STM8A and STM32
+  microcontrollers
+- STM AN4488 - Getting started with STM32F4xxxx MCU hardware development
+- [I2C pullup recommendation by adafruit](https://learn.adafruit.com/working-with-i2c-devices/pull-up-resistors),
+  [I2C pullup calculator](http://lembke.eu/arduinoablage/20201103i2cpullupcalculator/)
+- [crystal capacitor guide by adafruit](https://blog.adafruit.com/2012/01/24/choosing-the-right-crystal-and-caps-for-your-design/)
+- [KiCad differential pair routing guide by Digikey](https://www.digikey.de/en/maker/projects/how-to-route-differential-pairs-in-kicad-for-usb/45b99011f5d34879ae1831dce1f13e93)
+- [RP2040 hardware design guide by Sleepdealr](https://github.com/Sleepdealr/RP2040-designguide)
+- [KiCad 6 STM32 tutorial by Phil's Lab](https://www.youtube.com/watch?v=aVUqaB0IMh4)
+- [KiCad PCB tutorial by MalphasWats](https://github.com/MalphasWats/hawk)
+- [Layout Design Guide by Toradex](https://docs.toradex.com/102492-layout-design-guide.pdf)
+- [Effective PCB Design by NXP](https://www.nxp.com/files-static/training_pdf/WBNR_PCBDESIGN.pdf)
+- [I2C Design Mathematics: Capacitance and Resistance](https://www.allaboutcircuits.com/technical-articles/i2c-design-mathematics-capacitance-and-resistance/)
+
+This helped me immensensly in figuring out the FC980C-specific hardware
+requirements for the FC980C controller:
+
+- [FC980C pinout by tmk](https://github.com/tmk/tmk_keyboard/blob/4df8a27f7220c5f801f16151d31d4db8e563c2fa/keyboard/fc980c/README.md)
+- FC660C [schematic](https://fccid.io/pdf.php?id=1888185) and [BOM](https://fccid.io/pdf.php?id=1888184)
+
+
 License
 -------
 
-Copyright: © 2022 Wilhelm Schuster
+Copyright © 2022 Wilhelm Schuster
 
 The PCB design is licensed under the CERN-OHL-S v2. See the LICENSE file in
 each of the revision folders for the license text. This license is strongly
