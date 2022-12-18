@@ -55,10 +55,11 @@ Production
 ----------
 
 While the PCB itself can be manufactured by a number of PCB houses, component
-selection and SMD assembly is made with [JLCPCB][JLC] in mind. The jlcpcb folder
-for each revision should include the necessary BOM and CPL files in addition to
-the Gerbers. The board parameters are specified in the PCB design file (the main
-parameters being a board thickness of 1.6mm and 2 copper layers).
+selection and SMD assembly is made with [JLCPCB][JLC] in mind. The
+`jlcpcb/production_files` folder for each revision should include the necessary
+BOM and CPL files in addition to the Gerbers. The board parameters are specified
+in the PCB design file (the main parameters being a board thickness of 1.6mm and
+2 copper layers). This board is compatible with JLC's "Economic PCBA" option.
 
 The EEPROM (U4) and accompanying decoupling capacitor (C6) are optional. The
 board should work without those populated.
@@ -168,29 +169,35 @@ replacement controller based on the ATmega32u4 MCU, publishing schematics (but
 no design files) and a [open source firmware implementation][TMKFC980C] for tmk
 that has been [ported][QMKFC980C] to QMK.
 
+The PCB has been designed using KiCad and production files have been exported
+using [Bouni's JLCPCB tools plugin][BouniJLCPlugin].
+
 [GeekhackFC980CInvestigation]: https://geekhack.org/index.php?topic=90681.0
 [FC660CSchematics]: https://fccid.io/pdf.php?id=1888185
 [TMKFC980C]: https://github.com/tmk/tmk_keyboard/tree/master/keyboard/fc980c
 [QMKFC980C]: https://github.com/qmk/qmk_firmware/tree/f21443d6a2be8e2068164f0f3646a175ffed2df4/keyboards/fc980c
+[BouniJLCPlugin]: https://github.com/Bouni/kicad-jlcpcb-tools
 
 Resources
 ---------
 
 These are various resources, that were helped me design my first PCB:
 
-- STM AN2867 - Oscillator design guide for STM8S, STM8A and STM32
-  microcontrollers
 - STM AN4488 - Getting started with STM32F4xxxx MCU hardware development
 - [I2C pullup recommendation by adafruit](https://learn.adafruit.com/working-with-i2c-devices/pull-up-resistors),
   [I2C pullup calculator](http://lembke.eu/arduinoablage/20201103i2cpullupcalculator/)
-- [crystal capacitor guide by adafruit](https://blog.adafruit.com/2012/01/24/choosing-the-right-crystal-and-caps-for-your-design/)
+- [I2C Design Mathematics: Capacitance and Resistance](https://www.allaboutcircuits.com/technical-articles/i2c-design-mathematics-capacitance-and-resistance/)
+- STM AN2867 - Oscillator design guide for STM8S, STM8A and STM32
+  microcontrollers
+- [Crystal capacitor guide by adafruit](https://blog.adafruit.com/2012/01/24/choosing-the-right-crystal-and-caps-for-your-design/)
+- [STM32 Oscillator Calculator](https://helios.wh2.tu-dresden.de/~benni_koch/stmcalculator/)
+- [Crystal Oscillator Design](https://hoani.net/posts/blog/2017-01-19-oscillator-design/)
 - [KiCad differential pair routing guide by Digikey](https://www.digikey.de/en/maker/projects/how-to-route-differential-pairs-in-kicad-for-usb/45b99011f5d34879ae1831dce1f13e93)
 - [RP2040 hardware design guide by Sleepdealr](https://github.com/Sleepdealr/RP2040-designguide)
 - [KiCad 6 STM32 tutorial by Phil's Lab](https://www.youtube.com/watch?v=aVUqaB0IMh4)
 - [KiCad PCB tutorial by MalphasWats](https://github.com/MalphasWats/hawk)
 - [Layout Design Guide by Toradex](https://docs.toradex.com/102492-layout-design-guide.pdf)
 - [Effective PCB Design by NXP](https://www.nxp.com/files-static/training_pdf/WBNR_PCBDESIGN.pdf)
-- [I2C Design Mathematics: Capacitance and Resistance](https://www.allaboutcircuits.com/technical-articles/i2c-design-mathematics-capacitance-and-resistance/)
 
 This helped me immensensly in figuring out the FC980C-specific hardware
 requirements for the FC980C controller:
