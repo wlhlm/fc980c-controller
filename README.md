@@ -169,6 +169,9 @@ replacement controller based on the ATmega32u4 MCU, publishing schematics (but
 no design files) and a [open source firmware implementation][TMKFC980C] for tmk
 that has been [ported][QMKFC980C] to QMK.
 
+Thanks to Toocanzs#5098 on Discord for helping me with the crystal load capacitor
+calculation.
+
 The PCB has been designed using KiCad and production files have been exported
 using [Bouni's JLCPCB tools plugin][BouniJLCPlugin].
 
