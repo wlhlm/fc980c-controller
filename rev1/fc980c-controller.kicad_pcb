@@ -7,7 +7,7 @@
   (paper "A4")
   (title_block
     (title "Leopold FC980C Replacement Controller")
-    (rev "1")
+    (rev "2")
     (company "Wilhelm Schuster")
     (comment 1 "Licensed under CERN-OHL-S V2")
   )
@@ -3426,7 +3426,7 @@
   (gr_text "#1" (at 147.4 46.9) (layer "F.SilkS") (tstamp 01d25014-a053-4863-b226-9a7881e12ce8)
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (gr_text "Leopold FC980C Replacement Controller\nrev. 1\n© 2022 W. Schuster" (at 146.1 39.3) (layer "F.SilkS") (tstamp 0f925d03-19db-44df-a24e-7fbf98f14395)
+  (gr_text "Leopold FC980C Replacement Controller\nrev. 2\n© 2022 W. Schuster" (at 146.1 39.3) (layer "F.SilkS") (tstamp 0f925d03-19db-44df-a24e-7fbf98f14395)
     (effects (font (size 1 1) (thickness 0.15)) (justify right))
   )
   (gr_text "2" (at 73.5 163.4) (layer "User.2") (tstamp 08c28429-1874-4554-bf2f-06d5fc5b5d92)
