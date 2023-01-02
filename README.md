@@ -69,7 +69,7 @@ board should work without those populated.
 Design review
 -------------
 
-The specific component selection is tailored to what was available at JLCPC at
+The specific component selection is tailored to what was available at JLCPCB at
 the time of design. While things like the capacitors and resistors can be easily
 substituted, Larger ICs such as the USB protection, fuse, 3.3V regulator, MCU,
 and I2C level shifter have not been evaluated for alternative parts.
@@ -126,11 +126,21 @@ widths.
 Errata
 ------
 
-None so far, but the board has not been build and tested yet. It is only a
-matter of time.
+### Revision 1
+
+The SWD header is unusable since SWDIO has been routed to the wrong pin on the
+MCU (PA15 instead of PA13). This has no impact on the on the actual controller
+functionality. Fixed in revision 2.
 
 Revisions
 ---------
+
+### Revision 2
+
+Update SWD pinout to correctly use PA13 on the MCU for SWDIO instead of PA15.
+
+**Sample tested and working:** not yet (no new features, only includes fixes for
+revision 1 errata, so it should just work)
 
 ### Revision 1
 
