@@ -94,6 +94,8 @@ the cheap "Blackpill" development boards and has good QMK support. It is also
 already used in [another project][RFR1Replacement] that replaces the controller
 and PCB of the Realforce R1 TKL keyboards.
 
+[RFR1Replacement]: https://github.com/Cipulot/RF_R1_8-9Xu
+
 ### I2C level shifter
 
 The I2C bus on the main FC980C "switch" board is pulled-up to 5V. The original
@@ -109,7 +111,6 @@ The 5V fuse and USB protection components have been carried forward from the
 original RP2040-based design and have been taken from [this][RP2040DesignGuide]
 RP2040 design guide.
 
-[RFR1Replacement]: https://github.com/Cipulot/RF_R1_8-9Xu
 [RP2040DesignGuide]: https://github.com/Sleepdealr/RP2040-designguide
 
 ### USB traces
