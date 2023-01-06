@@ -133,6 +133,10 @@ The SWD header is unusable since SWDIO has been routed to the wrong pin on the
 MCU (PA15 instead of PA13). This has no impact on the on the actual controller
 functionality. Fixed in revision 2.
 
+Unfortunately, the `KEY_STATE` pin is missing a 5V pull-up resistor. A manual
+fix (such as soldering a 10k resistor between the `KEY_STATE` \[pin 14\] and 5V
+on the `KEYBOARD` connector) is necessary. Fixed in revision 2.
+
 Revisions
 ---------
 
@@ -142,8 +146,9 @@ Update SWD pinout to correctly use PA13 on the MCU for SWDIO instead of PA15.
 
 Minor position adjustments to drill holes.
 
-**Sample tested and working:** not yet (no new features, only includes fixes for
-revision 1 errata, so it should just work)
+Add 5V pull-up resistor to `KEY_STATE` pin.
+
+**Sample tested and working:** not yet
 
 ### Revision 1
 
@@ -154,7 +159,7 @@ compared to the RP2040, such as USB termination resistors and external flash.
 One notable addition compared to the previous revision is an optional 64Kb
 EEPROM.
 
-**Sample tested and working:** not yet
+**Sample tested and working:** tested and issues identified (see Errata section)
 
 ### Revision 0
 
