@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name "sleep-lib")(type "KiCad")(uri "${KIPRJMOD}/../components/sleep-lib")(options "")(descr ""))
+  (lib (name "additional")(type "KiCad")(uri "${KIPRJMOD}/../components/additional")(options "")(descr ""))
+)
