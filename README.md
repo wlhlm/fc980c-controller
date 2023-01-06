@@ -142,11 +142,13 @@ Revisions
 
 ### Revision 2
 
-Update SWD pinout to correctly use PA13 on the MCU for SWDIO instead of PA15.
+Updates SWD pinout to correctly use PA13 on the MCU for SWDIO instead of PA15.
 
 Minor position adjustments to drill holes.
 
-Add 5V pull-up resistor to `KEY_STATE` pin.
+Adds 5V pull-up resistor to `KEY_STATE` line.
+
+Removes I2C level shifter to simplify BOM
 
 **Sample tested and working:** not yet
 
