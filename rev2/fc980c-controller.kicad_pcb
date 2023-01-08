@@ -152,7 +152,7 @@
     (property "Sheetfile" "fc980c-controller.kicad_sch")
     (property "Sheetname" "")
     (path "/ddf493fe-6d0f-48a5-bcb3-b0c667be8a78")
-    (attr exclude_from_pos_files)
+    (attr exclude_from_pos_files exclude_from_bom)
     (fp_text reference "LOGO1" (at 0 0) (layer "F.SilkS") hide
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp cdacdba7-ed6e-4e7c-8327-57b14ac3309a)
@@ -1385,7 +1385,7 @@
     (property "Sheetfile" "fc980c-controller.kicad_sch")
     (property "Sheetname" "")
     (path "/455a3ebb-a602-4ffa-bcc4-bc22996e70a4")
-    (attr exclude_from_pos_files)
+    (attr exclude_from_pos_files exclude_from_bom)
     (fp_text reference "H2" (at 0 -3.2) (layer "F.SilkS") hide
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 701e7c39-1b55-4366-897b-d0e2141e944c)
@@ -1548,7 +1548,7 @@
     (property "Sheetfile" "fc980c-controller.kicad_sch")
     (property "Sheetname" "")
     (path "/85259554-ee62-4e2d-a196-3ac27664d817")
-    (attr exclude_from_pos_files)
+    (attr exclude_from_pos_files exclude_from_bom)
     (fp_text reference "H1" (at 0 -3.2) (layer "F.SilkS") hide
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 86547ac9-9dd0-4b05-8317-e8c5ade5d14b)
