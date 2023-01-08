@@ -14,6 +14,8 @@ well as an errata section to list shortcomings on the current design I am aware
 of.
 
 ![FC980C controller photo](img/main-board-photo.jpg)
+(the resistor hand-soldered to the connector is due to a flaw of the revision 1
+design, which has been fixed in revision 2)
 
 **Specs:**
 - STM32F401 MCU as found on the Blackpill boards
@@ -36,29 +38,29 @@ Getting started
 ---------------
 
 If you have received this controller fully assembled, your next step will be
-firmware setup (TBD - still waiting on first production run).
+firmware setup. Check the `firmawre/` directory in this repository.
 
-In case you still have to solder on the connector, see the assembly section
+In case you still have to solder on the connectors, see the assembly section
 below.
 
 Assembly
 --------
 
 This PCB is intended to be manufactured and assembled by JLCPCB, **except** for
-the connectors and a button on the bottom side.
+the connectors and a button on the back of the board.
 
 The button (BOOT0) is through-hole and easily soldered by hand. Make sure to
-place it on the bottom side, i.e. opposite side of the MCU where the DIP
+place it on the bottom side, i.e. opposite side of the MCU, where the DIP
 switches are on the original controller board.
 
-The connector for the USB board (USB) is though-hole and can be hand soldered.
+The connector for the USB board (USB) is though-hole and can be hand-soldered.
 
 The SWD header is optional and can be left unsoldered.
 
 The connector labeled KEYBOARD is only available for surface mounting and
 unfortunately not available at JLC for assembly (at least at the time of
-design). Hand soldering is a bit more challenging for this connector. Make sure
-to use a healthy dose of flux and fine solder wire.
+design). Hand-soldering is a bit more challenging for this connector. Make sure
+to use a healthy dose of flux and fine gauge solder wire.
 
 Production
 ----------
@@ -68,7 +70,12 @@ selection and SMD assembly is made with [JLCPCB][JLC] in mind. The
 `jlcpcb/production_files` folder for each revision should include the necessary
 BOM and CPL files in addition to the Gerbers. The board parameters are specified
 in the PCB design file (the main parameters being a board thickness of 1.6mm and
-2 copper layers). This board is compatible with JLC's "Economic PCBA" option.
+2 copper layers). For the option "Remove Order Number", you can select "Specify
+a location".
+
+This board is compatible with JLC's "Economic PCBA" option. For option "Assembly
+Side", choose "Top Side" and under "Tooling holes" you can specify "Added by
+Customer".
 
 The EEPROM (U4) and accompanying decoupling capacitor (C6) are optional. The
 board should work without those populated.
@@ -156,8 +163,8 @@ Adds 5V pull-up resistor to `KEY_STATE` line.
 
 Removes I2C level shifter to simplify BOM.
 
-**Sample tested and working:** not yet--it is recommended to enable the opions
-"Confirm production file" and "Confirm component placement" when ordering from
+**Sample tested and working:** not yet—it is recommended to enable the options
+"Confirm Production file" and "Confirm Parts Placement" when ordering from
 JLC
 
 ### Revision 1
