@@ -2325,9 +2325,9 @@
     (pad "5" thru_hole oval (at 8.2 10.16 90) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 1 "GND") (pinfunction "Pin_5") (pintype "passive") (tstamp 77519f51-2091-4121-8706-c0339fec76e1))
     (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Horizontal.wrl"
-      (offset (xyz 0 0 0))
+      (offset (xyz 8.2 -10.16 0))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz 0 0 180))
     )
   )
 
