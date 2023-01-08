@@ -137,6 +137,8 @@ Revisions
 
 ### Revision 2
 
+![rev2 PCB](img/rev2-board-render.png)
+
 Updates SWD pinout to correctly use PA13 on the MCU for SWDIO instead of PA15.
 
 Minor position adjustments to drill holes.
