@@ -13,7 +13,7 @@ and let me know. I will list my reasons for various design decision below as
 well as an errata section to list shortcomings on the current design I am aware
 of.
 
-<!-- ![FC980C controller photo][img/rev1-board-shot.png] -->
+![FC980C controller photo][img/main-board-photo.jpg]
 
 **Specs:**
 - STM32F401 MCU as found on the Blackpill boards
@@ -161,6 +161,8 @@ Removes I2C level shifter to simplify BOM.
 JLC
 
 ### Revision 1
+
+![rev1 PCB](img/rev1-board-photo.png)
 
 First design that has a chance to actually work in the FC980C. Switch to a
 STM32F401 microcontroller. This MCU allows saving a couple of components
