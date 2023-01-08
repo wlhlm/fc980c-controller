@@ -106,9 +106,9 @@ tried to keep the number of extended components as low as possible.
 The main requirements for the microcontroller were 5V tolerance and good
 compatibility with QMK. Is also tried to take pricing and availability for the
 foreseeable future into account. My choice fell on the STM32F401 that is used in
-the cheap "Blackpill" development boards and has good QMK support. It is also
-already used in [another project][RFR1Replacement] that replaces the controller
-and PCB of the Realforce R1 TKL keyboards.
+the cheap "Blackpill" development boards. It is well supported by QMK and is
+also used in [another Topre controller board project][RFR1Replacement] that
+replaces the PCB of the Realforce R1 TKL keyboards.
 
 [RFR1Replacement]: https://github.com/Cipulot/RF_R1_8-9Xu
 
@@ -141,12 +141,12 @@ None found thus far.
 ### Revision 1
 
 The SWD header is unusable since SWDIO has been routed to the wrong pin on the
-MCU (PA15 instead of PA13). This has no impact on the on the actual controller
+MCU (PA15 instead of PA13). This has no impact on the actual controller
 functionality. Fixed in revision 2.
 
 Unfortunately, the `KEY_STATE` pin is missing a 5V pull-up resistor. A manual
 fix (such as soldering a 10k resistor between the `KEY_STATE` \[pin 14\] and 5V
-on the `KEYBOARD` connector) is necessary. Fixed in revision 2.
+pins on the `KEYBOARD` connector) is necessary. Fixed in revision 2.
 
 Revisions
 ---------
@@ -250,7 +250,7 @@ This helped with the software matrix scanning implementation:
 This helped me immensensly in figuring out the FC980C-specific hardware
 requirements for the FC980C controller:
 
-- [FC980C pinout by tmk](https://github.com/tmk/tmk_keyboard/blob/4df8a27f7220c5f801f16151d31d4db8e563c2fa/keyboard/fc980c/README.md)
+- [FC980C pinout](https://github.com/tmk/tmk_keyboard/blob/4df8a27f7220c5f801f16151d31d4db8e563c2fa/keyboard/fc980c/README.md) by tmk
 - FC660C [schematic](https://fccid.io/pdf.php?id=1888185) and [BOM](https://fccid.io/pdf.php?id=1888184)
 
 
