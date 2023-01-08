@@ -11,7 +11,6 @@
 
 #include QMK_KEYBOARD_H
 
-
 #define ACTUATION_POINT_I2C_TIMEOUT 100
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -32,10 +31,10 @@
 int8_t actuation_point_read_rdac(void) {
     uint8_t ret = 0;
 
-	i2c_status_t e = i2c_readReg(AD5258_ADDR, AD5258_INST_RDAC, &ret, 1, ACTUATION_POINT_I2C_TIMEOUT);
-	if (e != I2C_STATUS_SUCCESS) {
-		return -1;
-	}
+    i2c_status_t e = i2c_readReg(AD5258_ADDR, AD5258_INST_RDAC, &ret, 1, ACTUATION_POINT_I2C_TIMEOUT);
+    if (e != I2C_STATUS_SUCCESS) {
+        return -1;
+    }
 
     return MIN(AD5258_RDAC_MAX, ret);
 };
@@ -43,61 +42,61 @@ int8_t actuation_point_read_rdac(void) {
 int8_t actuation_point_read_eeprom(void) {
     uint8_t ret = 0;
 
-	i2c_status_t e = i2c_readReg(AD5258_ADDR, AD5258_INST_EEPROM, &ret, 1, ACTUATION_POINT_I2C_TIMEOUT);
-	if (e != I2C_STATUS_SUCCESS) {
-		return -1;
-	}
+    i2c_status_t e = i2c_readReg(AD5258_ADDR, AD5258_INST_EEPROM, &ret, 1, ACTUATION_POINT_I2C_TIMEOUT);
+    if (e != I2C_STATUS_SUCCESS) {
+        return -1;
+    }
 
     return MIN(AD5258_RDAC_MAX, ret);
 };
 
 int8_t actuation_point_write_rdac(uint8_t value) {
-	value = MIN(AD5258_RDAC_MAX, value);
-	i2c_status_t e = i2c_writeReg(AD5258_ADDR, AD5258_INST_RDAC, &value, 1, ACTUATION_POINT_I2C_TIMEOUT);
-	if (e == I2C_STATUS_SUCCESS) {
-		return value;
-	} else if (e == I2C_STATUS_TIMEOUT) {
-		dprintf("actuation_point_write_rdac: timeout\n");
-	} else if (e == I2C_STATUS_ERROR) {
-		uprintf("actuation_point_write_rdac: error\n");
-	}
+    value = MIN(AD5258_RDAC_MAX, value);
+    i2c_status_t e = i2c_writeReg(AD5258_ADDR, AD5258_INST_RDAC, &value, 1, ACTUATION_POINT_I2C_TIMEOUT);
+    if (e == I2C_STATUS_SUCCESS) {
+        return value;
+    } else if (e == I2C_STATUS_TIMEOUT) {
+        dprintf("actuation_point_write_rdac: timeout\n");
+    } else if (e == I2C_STATUS_ERROR) {
+        uprintf("actuation_point_write_rdac: error\n");
+    }
 
-	return -1;
+    return -1;
 };
 
 int8_t actuation_point_adjust(int8_t offset) {
-	int8_t r = -1;
+    int8_t r = -1;
     int8_t rdac = actuation_point_read_rdac();
 
-	if (rdac >= 0) {
-		uint8_t rdac_new = rdac + offset;
+    if (rdac >= 0) {
+        uint8_t rdac_new = rdac + offset;
 
-		if (offset > 0) {
-			r = actuation_point_write_rdac(MIN(AD5258_RDAC_MAX, rdac_new));
-		} else if (offset < 0) {
-			r = actuation_point_write_rdac(MAX(AD5258_RDAC_MIN, rdac_new));
-		}
-	}
+        if (offset > 0) {
+            r = actuation_point_write_rdac(MIN(AD5258_RDAC_MAX, rdac_new));
+        } else if (offset < 0) {
+            r = actuation_point_write_rdac(MAX(AD5258_RDAC_MIN, rdac_new));
+        }
+    }
 
-	return r;
+    return r;
 }
 
 int8_t actuation_point_make_shallower(void) {
-	return actuation_point_adjust(-1);
+    return actuation_point_adjust(-1);
 };
 
 int8_t actuation_point_make_deeper(void) {
-	return actuation_point_adjust(1);
+    return actuation_point_adjust(1);
 };
 
 void actuation_point_reset(void) {
-	i2c_status_t e = i2c_writeReg(AD5258_ADDR, AD5258_INST_RESTORE, NULL, 0, ACTUATION_POINT_I2C_TIMEOUT);
-	if (e == I2C_STATUS_TIMEOUT) {
-		dprintf("actuation_point_reset: timeout\n");
-	} else if (e == I2C_STATUS_ERROR) {
-		dprintf("actuation_point_reset: error\n");
-	} else {
-		wait_us(350); // datasheet specifies 300us restore interval
-		i2c_writeReg(AD5258_ADDR, AD5258_INST_NOP, NULL, 0, ACTUATION_POINT_I2C_TIMEOUT); // recommended in datasheet
-	}
+    i2c_status_t e = i2c_writeReg(AD5258_ADDR, AD5258_INST_RESTORE, NULL, 0, ACTUATION_POINT_I2C_TIMEOUT);
+    if (e == I2C_STATUS_TIMEOUT) {
+        dprintf("actuation_point_reset: timeout\n");
+    } else if (e == I2C_STATUS_ERROR) {
+        dprintf("actuation_point_reset: error\n");
+    } else {
+        wait_us(350); // datasheet specifies 300us restore interval
+        i2c_writeReg(AD5258_ADDR, AD5258_INST_NOP, NULL, 0, ACTUATION_POINT_I2C_TIMEOUT); // recommended in datasheet
+    }
 }

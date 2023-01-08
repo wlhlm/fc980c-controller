@@ -16,10 +16,10 @@ enum layer_names {
 };
 
 enum custom_keycodes {
-	AP_UP = SAFE_RANGE, // make actuation point deeper
-	AP_DN,              // make actuation point shallower
-	AP_RST,             // reset actuation point to factory value
-	AP_PRINT_VAL        // type current actuation point value (max 63)
+    AP_UP = SAFE_RANGE, // make actuation point deeper
+    AP_DN,              // make actuation point shallower
+    AP_RST,             // reset actuation point to factory value
+    AP_PRINT_VAL        // type current actuation point value (max 63)
 };
 
 #define FN MO(_FUNCTION_LAYER)
@@ -45,33 +45,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	if (record->event.pressed) {
-		int8_t r_val;
+    if (record->event.pressed) {
+        int8_t r_val;
 
-		switch (keycode) {
-			case AP_UP:
-				r_val = actuation_point_make_deeper();
-				if (r_val >= 0) fc980c_config.actuation_point_value = r_val;
-				fc980c_eeconfig_update_kb();
-				break;
-			case AP_DN:
-				r_val = actuation_point_make_shallower();
-				if (r_val >= 0) fc980c_config.actuation_point_value = r_val;
-				fc980c_eeconfig_update_kb();
-				break;
-			case AP_RST:
-				actuation_point_reset();
-				break;
-			case AP_PRINT_VAL:
-				dprintf("actuation_point (AD5258): rdac %"PRIu8", eeprom %"PRIu8"\n", actuation_point_read_rdac(), actuation_point_read_eeprom());
+        switch (keycode) {
+            case AP_UP:
+                r_val = actuation_point_make_deeper();
+                if (r_val >= 0) fc980c_config.actuation_point_value = r_val;
+                fc980c_eeconfig_update_kb();
+                break;
+            case AP_DN:
+                r_val = actuation_point_make_shallower();
+                if (r_val >= 0) fc980c_config.actuation_point_value = r_val;
+                fc980c_eeconfig_update_kb();
+                break;
+            case AP_RST:
+                actuation_point_reset();
+                break;
+            case AP_PRINT_VAL:
+                dprintf("actuation_point (AD5258): rdac %"PRIu8", eeprom %"PRIu8"\n", actuation_point_read_rdac(), actuation_point_read_eeprom());
 #ifdef SEND_STRING_ENABLE
-				char rdac_buf[3];
-				snprintf(rdac_buf, sizeof(rdac_buf), "%"PRIu8, actuation_point_read_rdac());
-				send_string(rdac_buf);
+                char rdac_buf[3];
+                snprintf(rdac_buf, sizeof(rdac_buf), "%"PRIu8, actuation_point_read_rdac());
+                send_string(rdac_buf);
 #endif
-				break;
-		}
-	}
+                break;
+        }
+    }
 
     return true;
 }
