@@ -10,8 +10,8 @@ This is the first PCB I have designed and as such I suspect this will have many
 areas that can be improved. I am very much looking forward to hearing feedback
 about this design, if you think something can be improved please open an issue
 and let me know. I will list my reasons for various design decision below as
-well as an errata section to list shortcomings on the current design I am aware
-of.
+well as an errata section to list shortcomings of the current design that I am
+aware of.
 
 ![FC980C controller photo](img/main-board-photo.jpg)
 (the resistor hand-soldered to the connector is due to a flaw of the revision 1
@@ -38,7 +38,7 @@ Getting started
 ---------------
 
 If you have received this controller fully assembled, your next step will be
-firmware setup. Check the `firmawre/` directory in this repository.
+firmware setup. Check the `firmware/` directory in this repository.
 
 In case you still have to solder on the connectors, see the assembly section
 below.
@@ -203,14 +203,14 @@ work][GeekhackFC980CInvestigation] of the keyboard community, including
 uncovering [schematics][FC660CSchematics] for the similar Leopold FC660C that
 were submitted to the FCC that helped me figure out the I/O voltage
 requirements. In particular, I want to thank hasu (aka tmk) who created a FC980C
-replacement controller based on the ATmega32u4 MCU, publishing schematics (but
-no design files) and a [open source firmware implementation][TMKFC980C] for tmk
-that has been [ported][QMKFC980C] to QMK.
+replacement controller based on the ATmega32u4 MCU, publishing schematics and an
+[open source firmware implementation][TMKFC980C] for tmk that has been
+[ported][QMKFC980C] to QMK.
 
-Thanks to Toocanzs#5098 on Discord for helping me with the crystal load capacitor
-calculation.
+Thanks to Toocanzs#5098 from the QMK Discord for helping me with the crystal
+load capacitor calculation.
 
-The PCB has been designed using KiCad and production files have been exported
+The PCB has been designed using KiCad 6 and production files have been exported
 using [Bouni's JLCPCB tools plugin][BouniJLCPlugin].
 
 [GeekhackFC980CInvestigation]: https://geekhack.org/index.php?topic=90681.0
