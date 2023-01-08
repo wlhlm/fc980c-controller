@@ -156,7 +156,9 @@ Adds 5V pull-up resistor to `KEY_STATE` line.
 
 Removes I2C level shifter to simplify BOM.
 
-**Sample tested and working:** not yet
+**Sample tested and working:** not yet--it is recommended to enable the opions
+"Confirm production file" and "Confirm component placement" when ordering from
+JLC
 
 ### Revision 1
 
@@ -167,7 +169,8 @@ compared to the RP2040, such as USB termination resistors and external flash.
 One notable addition compared to the previous revision is an optional 64Kb
 EEPROM.
 
-**Sample tested and working:** tested and issues identified (see Errata section)
+**Sample tested and working:** tested and issues identified (see Errata
+section), working with the suggested manual fixes
 
 ### Revision 0
 
