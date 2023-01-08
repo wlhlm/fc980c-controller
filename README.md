@@ -96,15 +96,6 @@ and PCB of the Realforce R1 TKL keyboards.
 
 [RFR1Replacement]: https://github.com/Cipulot/RF_R1_8-9Xu
 
-### I2C level shifter
-
-The I2C bus on the main FC980C "switch" board is pulled-up to 5V. The original
-controller is directly connected to this bus even though it is 3.3V (albeit 5V
-tolerant). This seems to work fine despite the fact that the I2C peripherals on
-the board specify a minimum of 3.5V for logical high. Because of that I have
-decided to include a I2C level shifter. The specific component was chosen based
-on what was already available in good quantities at JLC.
-
 ### Protection circuitry
 
 The 5V fuse and USB protection components have been carried forward from the
@@ -127,6 +118,10 @@ widths.
 Errata
 ------
 
+### Revision 2
+
+None found thus far.
+
 ### Revision 1
 
 The SWD header is unusable since SWDIO has been routed to the wrong pin on the
@@ -148,7 +143,7 @@ Minor position adjustments to drill holes.
 
 Adds 5V pull-up resistor to `KEY_STATE` line.
 
-Removes I2C level shifter to simplify BOM
+Removes I2C level shifter to simplify BOM.
 
 **Sample tested and working:** not yet
 
@@ -204,7 +199,7 @@ using [Bouni's JLCPCB tools plugin][BouniJLCPlugin].
 Resources
 ---------
 
-These are various resources, that were helped me design my first PCB:
+These are various resources, that helped me designing my first PCB:
 
 - STM AN4488 - Getting started with STM32F4xxxx MCU hardware development
 - [I2C pullup recommendation by adafruit](https://learn.adafruit.com/working-with-i2c-devices/pull-up-resistors),
