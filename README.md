@@ -216,17 +216,24 @@ These are various resources, that helped me designing my first PCB:
 - [I2C pullup recommendation by adafruit](https://learn.adafruit.com/working-with-i2c-devices/pull-up-resistors),
   [I2C pullup calculator](http://lembke.eu/arduinoablage/20201103i2cpullupcalculator/)
 - [I2C Design Mathematics: Capacitance and Resistance](https://www.allaboutcircuits.com/technical-articles/i2c-design-mathematics-capacitance-and-resistance/)
+- [Can an STM32 chip directly interface with a 5V I2C bus?](https://electronics.stackexchange.com/questions/50435/can-i-directly-interface-to-5v-i2c-devices-with-an-stm32-running-on-1-8v?r=SearchResults)
+- [5V to 3.3V logic level translation/conversion/shifting](https://next-hack.com/index.php/2017/09/15/how-to-interface-a-5v-output-to-a-3-3v-input/)
 - STM AN2867 - Oscillator design guide for STM8S, STM8A and STM32
   microcontrollers
 - [Crystal capacitor guide by adafruit](https://blog.adafruit.com/2012/01/24/choosing-the-right-crystal-and-caps-for-your-design/)
 - [STM32 Oscillator Calculator](https://helios.wh2.tu-dresden.de/~benni_koch/stmcalculator/)
 - [Crystal Oscillator Design](https://hoani.net/posts/blog/2017-01-19-oscillator-design/)
+- [Can the STM32-internal pull-up resistors be used with 5V lines?](http://forums.netduino.com/index.php?/topic/10401-guidance-using-5v-signals-with-pull-upspull-downs/)
 - [KiCad differential pair routing guide by Digikey](https://www.digikey.de/en/maker/projects/how-to-route-differential-pairs-in-kicad-for-usb/45b99011f5d34879ae1831dce1f13e93)
 - [RP2040 hardware design guide by Sleepdealr](https://github.com/Sleepdealr/RP2040-designguide)
 - [KiCad 6 STM32 tutorial by Phil's Lab](https://www.youtube.com/watch?v=aVUqaB0IMh4)
 - [KiCad PCB tutorial by MalphasWats](https://github.com/MalphasWats/hawk)
 - [Layout Design Guide by Toradex](https://docs.toradex.com/102492-layout-design-guide.pdf)
 - [Effective PCB Design by NXP](https://www.nxp.com/files-static/training_pdf/WBNR_PCBDESIGN.pdf)
+
+This helped with the software matrix scanning implementation:
+
+- [Using STM32 GPIO with ChibiOS PAL Driver](https://www.playembedded.org/blog/stm32-gpio-chibios-pal/)
 
 This helped me immensensly in figuring out the FC980C-specific hardware
 requirements for the FC980C controller:
