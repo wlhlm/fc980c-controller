@@ -21,13 +21,13 @@ of.
 - designed to be assembled by [JLCPCB][JLC]
 
 **Why would anyone want a replacement keyboard controller for the FC980C?** In
-case the original controller fries, the lack of controller replacement from the
-manufacturer would otherwise mean tossing the whole (expensive) keyboard. This
-also enables the usage of Free and Open Source firmware to replace the
-proprietary stock software. Running alternate firmware allows enabling hardware
+case the original controller gets fried, the lack of controller replacement from
+the manufacturer would otherwise mean tossing the whole (expensive) keyboard.
+This board enables the usage of Free and Open Source firmware to replace the
+proprietary stock firmware. Running alternate firmware allows enabling hardware
 features not accessible through the original controller such as actuation point
-adjustments, not to mention the plethora of software features enabled by QMK
-for example.
+adjustments, not to mention the plethora of software features enabled by QMK for
+example.
 
 [QMK]: https://qmk.fm/
 [JLC]: https://jlcpcb.com/

@@ -40,7 +40,7 @@ of the `keyboard` directory into QMK's `keyboards` directory.
 After this the firmware can be built like normal using either `make`
 
 ```bash
-$ make rot13/fc980c:default
+$ make leopold/fc980c/wlhlm:default
 ```
 
 or the QMK CLI (just make sure that the CLI uses this QMK submodule rather than

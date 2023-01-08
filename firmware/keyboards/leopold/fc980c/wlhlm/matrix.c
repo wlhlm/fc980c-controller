@@ -60,7 +60,7 @@ static bool read_rows_on_col(matrix_row_t current_matrix[], int current_col) {
         KEY_HYS_off();
         KEY_ENABLE_off();
 
-        // NOTE: KEY_STATE keep its state in 20us after KEY_ENABLE.
+        // NOTE: KEY_STATE keep its state for 20us after KEY_ENABLE.
         // This takes 25us or more to make sure KEY_STATE returns to idle state.
         wait_us(25);
 
