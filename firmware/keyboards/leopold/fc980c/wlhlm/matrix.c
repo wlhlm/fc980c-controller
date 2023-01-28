@@ -48,7 +48,7 @@ static bool read_rows_on_col(matrix_row_t current_matrix[], int current_col) {
         KEY_ENABLE_on();
         wait_us(2);
 
-        // NOTE: KEY_STATE is valid only in 20us after KEY_ENABLE.
+        // NOTE: KEY_STATE is only valid for 20us after KEY_ENABLE.
         if (!readPin(MATRIX_KEY_STATE_PIN)) {
             // pin LO, set col bit
             current_matrix[row_index] |= (MATRIX_ROW_SHIFTER << current_col);

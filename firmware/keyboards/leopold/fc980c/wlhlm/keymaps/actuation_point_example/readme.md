@@ -2,10 +2,10 @@ Keymap for adjusting the switch acuation point
 ==============================================
 
 This keymap provides custom keycodes that allow adjusting the actuation point of
-the Topre switches of the FC980C. The keyboard comes with an actuation point
-predefined from the factory. This value will never be overwritten, rather QMK
-will store the custom actuation point value in its private EEPROM store which can
-easily be reset.
+the Topre switches on the FC980C. The keyboard comes with an actuation point
+predefined from the factory. This value will never be touched, rather QMK will
+store the custom actuation point value separetely so that it can easily be reset
+to the factory value.
 
 Actuation point adjustment keycodes
 -----------------------------------

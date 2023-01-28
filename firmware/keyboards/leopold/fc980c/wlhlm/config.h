@@ -13,7 +13,7 @@
 #define MATRIX_MUX_COL_PINS {B0, B12, B13, B14}
 
 /* While the original BOM uses an M24C64 EEPROM not directly supported by QMK,
- * it uses the same parameters as another already supported EEPROM chip. */
+ * said EEPROM uses the same parameters as the already supported 24LC64. */
 #define EEPROM_I2C_24LC64
 
 /* Bootmagic Lite key configuration */
