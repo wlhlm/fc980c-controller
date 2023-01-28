@@ -67,6 +67,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 break;
             case AP_RST:
                 actuation_point_reset();
+                eeconfig_init_kb();
                 break;
             case AP_PRINT_VAL:
                 dprintf("acutation_point (AD5258): rdac %"PRIu8", eeprom %"PRIu8"\n", actuation_point_read_rdac(), actuation_point_read_eeprom());
