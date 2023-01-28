@@ -7,7 +7,7 @@
     "usb": {
         "vid": "0xFEED",
         "pid": "0xF980",
-        "device_version": "1.0.0",
+        "device_version": "2.0.0",
 
         "max_power": 100
     },
@@ -18,11 +18,12 @@
 
     "features": {
         "bootmagic": true,
-        "mousekey": false,
-        "extrakey": false,
-        "console": true,
-        "command": false,
+        "mousekey": true,
+        "extrakey": true,
         "nkro": true,
+
+        "console": false,
+        "command": false,
         "backlight": false,
         "audio": false
     },
