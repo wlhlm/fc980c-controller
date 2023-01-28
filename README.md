@@ -259,11 +259,11 @@ License
 
 Copyright © 2022 Wilhelm Schuster
 
-The PCB design is licensed under the CERN-OHL-S v2. See the LICENSE file in each
-of the revision folders for the license text. This license is strongly
+This PCB design is licensed under the CERN-OHL-S v2. See the LICENSE file in
+each of the revision folders for the license text. This license is strongly
 reciprocal and is similar in spirit to the GPL, but specifically focuses on
 hardware.
 
-The firmware portion of this project is licensed under GPL-2 in accordance with
-the QMK project. See the LICENSE file in the firmware folder for the license
-text.
+The firmware portion of this project is licensed under GPL-2-or-later in
+accordance with the QMK project. See the LICENSE file in the firmware folder for
+the license text.

@@ -1,6 +1,6 @@
 # Leopold FC980C replacement controller
 
-<!-- ![wlhlm FC980C replacement controller]() -->
+![wlhlm FC980C replacement controller render](https://i.imgur.com/5AW0DTm.png)
 
 * Keyboard Maintainer: [wlhlm](https://github.com/wlhlm)
 * Hardware Supported: rev. 1, rev. 2
