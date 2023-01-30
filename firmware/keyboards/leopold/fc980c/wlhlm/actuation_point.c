@@ -16,7 +16,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
 // AD5258 I2C digital potentiometer
-// http://www.analog.com/media/en/technical-documentation/data-sheets/AD5258.pdf
+// https://www.analog.com/media/en/technical-documentation/data-sheets/AD5258.pdf
 //
 #define AD5258_ADDR (0b0011000 << 1) // QMK I2C API requires shifting the address one bit to the left
 #define AD5258_INST_RDAC 0x00
@@ -58,7 +58,7 @@ int8_t actuation_point_write_rdac(uint8_t value) {
     } else if (e == I2C_STATUS_TIMEOUT) {
         dprintf("actuation_point_write_rdac: timeout\n");
     } else if (e == I2C_STATUS_ERROR) {
-        uprintf("actuation_point_write_rdac: error\n");
+        dprintf("actuation_point_write_rdac: error\n");
     }
 
     return -1;
