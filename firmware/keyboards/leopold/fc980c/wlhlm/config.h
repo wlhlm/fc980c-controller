@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include "config_common.h"
 
 /* Custom matrix pins and port select array */
 #define MATRIX_KEY_ENABLE_PIN A4
