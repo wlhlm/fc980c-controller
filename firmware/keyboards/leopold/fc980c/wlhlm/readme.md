@@ -26,5 +26,6 @@ After entering bootloader mode, new firmware can be flashed. Make example for fl
 
 ## Actuation point adjustment
 
-Topre keyboards such as the FC980C are based around capacitive sense and allow adjustment of the actuation point. This feature is not supported by the stock FC980C controller by default, however this replacement controller unlocks this functionality. Check the `actuation_point_example` keymap for guidance on how to use this.
+Topre keyboards such as the FC980C are based around capacitive sense and allow adjustment of the actuation point. This feature is not supported by the stock FC980C controller, this replacement controller however unlocks said functionality. Check the `actuation_point_example` keymap for guidance.
+
 
