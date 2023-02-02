@@ -1,4 +1,4 @@
-// Copyright 2022 Wilhelm Schuster
+// Copyright 2023 Wilhelm Schuster
 // based on work by Jun Wako and Balz Guenat
 // SPDX-License-Identifier: GPL-2.0-or-later
 

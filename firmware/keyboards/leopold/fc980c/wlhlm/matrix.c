@@ -1,4 +1,4 @@
-// Copyright 2022 Wilhelm Schuster
+// Copyright 2023 Wilhelm Schuster
 // Copyright 2019 Evy Dekkers
 // Copyright 2012-2018 Jun Wako, Jack Humbert, Yiancar
 // SPDX-License-Identifier: GPL-2.0-or-later
