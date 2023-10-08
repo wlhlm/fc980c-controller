@@ -9,7 +9,7 @@ tmk) and collaborators.
 This is the first PCB I have designed and as such I suspect this will have many
 areas that can be improved. I am very much looking forward to hearing feedback
 about this design, if you think something can be improved please open an issue
-and let me know. I will list my reasons for various design decision below as
+and let me know. I will list my reasons for various design choices below, as
 well as an errata section to list shortcomings of the current design that I am
 aware of.
 
@@ -20,7 +20,9 @@ design, which has been fixed in revision 2)
 **Specs:**
 - STM32F401 MCU as found on the Blackpill boards
 - Open Hardware licensed under CERN OHL-S v2
-- designed to be assembled by [JLCPCB][JLC]
+- designed to be assembled by [JLCPCB][JLC] (can of course be manufactured
+  elsewhere, but board component selection has been optimized for JLC's
+  component library)
 
 **Why would anyone want a replacement keyboard controller for the FC980C?** In
 case the original controller gets fried, the lack of controller replacement from
@@ -47,10 +49,11 @@ Assembly
 --------
 
 This PCB is intended to be manufactured and assembled by JLCPCB, **except** for
-the connectors and a button on the back of the board.
+the connectors and a button on the back of the board, which most likely have to
+be soldered on the PCB by hand.
 
-The button (BOOT0) is through-hole and easily soldered by hand. Make sure to
-place it on the bottom side, i.e. opposite side of the MCU, where the DIP
+The button (labled BOOT0) is through-hole and easily soldered by hand. Make sure
+to place it on the bottom side, i.e. opposite side of the MCU, where the DIP
 switches are on the original controller board.
 
 The connector for the USB board (USB) is though-hole and can be hand-soldered.
@@ -87,8 +90,8 @@ Design review
 
 The specific component selection is tailored to what was available at JLCPCB at
 the time of design. While things like the capacitors and resistors can be easily
-substituted, Larger ICs such as the USB protection, fuse, 3.3V regulator, MCU,
-and I2C level shifter have not been evaluated for alternative parts.
+substituted, Larger ICs such as the USB protection, fuse, 3.3V regulator, and
+MCU have not been evaluated for alternative parts.
 
 The USB and KEYBOARD connectors interface with the existing connectors used in
 the FC980C and cannot be substituted.
@@ -97,14 +100,15 @@ I don't intend to sell this controller PCB by myself and as such everyone who is
 interested in the design is meant to order this directly from JLC for
 themselves. As such, I've tried to minimize cost for low quantity production
 runs. JLC has the concept of extended and basic parts where the former incurs a
-one-time setup fee per production as those components quire additional labor for
-setting up the pick and place machines with the respective components. I've
-tried to keep the number of extended components as low as possible.
+one-time setup fee per production rund per component as those components require
+additional labor for setting up the pick and place machines with the respective
+components. I've tried to keep the number of extended components as low as
+possible.
 
 ### MCU
 
 The main requirements for the microcontroller were 5V tolerance and good
-compatibility with QMK. Is also tried to take pricing and availability for the
+compatibility with QMK. I also tried to take pricing and availability for the
 foreseeable future into account. My choice fell on the STM32F401 that is used in
 the cheap "Blackpill" development boards. It is well supported by QMK and is
 also used in [another Topre controller board project][RFR1Replacement] that
@@ -115,8 +119,8 @@ replaces the PCB of the Realforce R1 TKL keyboards.
 ### Protection circuitry
 
 The 5V fuse and USB protection components have been carried forward from the
-original RP2040-based design and have been taken from [this][RP2040DesignGuide]
-RP2040 design guide.
+original RP2040-based design (revision 1) and have been taken from
+[this][RP2040DesignGuide] RP2040 design guide.
 
 [RP2040DesignGuide]: https://github.com/Sleepdealr/RP2040-designguide
 
@@ -124,8 +128,8 @@ RP2040 design guide.
 
 USB trace width has been calculated using the KiCad built-in calculator
 following a [guide on the Digikey blog][DigikeyUSBTraceGuide]. The wide traces
-are caused by board design being two layers and having a thickness of 1.6mm.
-This is most likely overkill as the bandwidth requirements are very low for a
+are caused by the board design having two layers and a thickness of 1.6mm.  This
+is most likely overkill as the bandwidth requirements are very low for a
 keyboard. Reviewing a number of other boards, none were using USB-specific trace
 widths.
 
@@ -186,10 +190,10 @@ section), working with the suggested manual fixes
 ![rev0 PCB](img/rev0-board-render.png)
 
 The first version of this PCB uses a RP2040 controller. Unfortunately, the
-FC980C electronics rely on the MCU to be 5V tolerant. I have noticed this fact
+FC980C electronics rely on the MCU being 5V tolerant. I have noticed this only
 while triple checking the design *just* before submitting it for manufacturing.
 The RP2040 is *not* 5V tolerant and would require level shifters on many I/O
-lines. Because of that I decided to scrap the design and start new, but since
+lines. Because of that I decided to scrap the design and start anew, but since
 the board design was pretty much complete, I'm including it in this repository
 for posterity.
 
