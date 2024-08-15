@@ -31,7 +31,7 @@
 int8_t actuation_point_read_rdac(void) {
     uint8_t ret = 0;
 
-    i2c_status_t e = i2c_readReg(AD5258_ADDR, AD5258_INST_RDAC, &ret, 1, ACTUATION_POINT_I2C_TIMEOUT);
+    i2c_status_t e = i2c_read_register(AD5258_ADDR, AD5258_INST_RDAC, &ret, 1, ACTUATION_POINT_I2C_TIMEOUT);
     if (e != I2C_STATUS_SUCCESS) {
         return -1;
     }
@@ -42,7 +42,7 @@ int8_t actuation_point_read_rdac(void) {
 int8_t actuation_point_read_eeprom(void) {
     uint8_t ret = 0;
 
-    i2c_status_t e = i2c_readReg(AD5258_ADDR, AD5258_INST_EEPROM, &ret, 1, ACTUATION_POINT_I2C_TIMEOUT);
+    i2c_status_t e = i2c_read_register(AD5258_ADDR, AD5258_INST_EEPROM, &ret, 1, ACTUATION_POINT_I2C_TIMEOUT);
     if (e != I2C_STATUS_SUCCESS) {
         return -1;
     }
@@ -52,7 +52,7 @@ int8_t actuation_point_read_eeprom(void) {
 
 int8_t actuation_point_write_rdac(uint8_t value) {
     value = MIN(AD5258_RDAC_MAX, value);
-    i2c_status_t e = i2c_writeReg(AD5258_ADDR, AD5258_INST_RDAC, &value, 1, ACTUATION_POINT_I2C_TIMEOUT);
+    i2c_status_t e = i2c_write_register(AD5258_ADDR, AD5258_INST_RDAC, &value, 1, ACTUATION_POINT_I2C_TIMEOUT);
     if (e == I2C_STATUS_SUCCESS) {
         return value;
     } else if (e == I2C_STATUS_TIMEOUT) {
@@ -90,13 +90,13 @@ int8_t actuation_point_make_deeper(void) {
 };
 
 void actuation_point_reset(void) {
-    i2c_status_t e = i2c_writeReg(AD5258_ADDR, AD5258_INST_RESTORE, NULL, 0, ACTUATION_POINT_I2C_TIMEOUT);
+    i2c_status_t e = i2c_write_register(AD5258_ADDR, AD5258_INST_RESTORE, NULL, 0, ACTUATION_POINT_I2C_TIMEOUT);
     if (e == I2C_STATUS_TIMEOUT) {
         dprintf("actuation_point_reset: timeout\n");
     } else if (e == I2C_STATUS_ERROR) {
         dprintf("actuation_point_reset: error\n");
     } else {
         wait_us(350); // datasheet specifies 300us restore interval
-        i2c_writeReg(AD5258_ADDR, AD5258_INST_NOP, NULL, 0, ACTUATION_POINT_I2C_TIMEOUT); // recommended in datasheet
+        i2c_write_register(AD5258_ADDR, AD5258_INST_NOP, NULL, 0, ACTUATION_POINT_I2C_TIMEOUT); // recommended in datasheet
     }
 }
