@@ -1,6 +1,6 @@
 {
-    "keyboard_name": "FC980C QMK",
     "manufacturer": "Leopold",
+    "keyboard_name": "FC980C (wlhlm, QMK)",
     "url": "https://github.com/wlhlm/fc980c-controller",
     "maintainer": "wlhlm",
 
@@ -14,18 +14,17 @@
 
     "processor": "STM32F401",
     "bootloader": "stm32-dfu",
-    "board": "GENERIC_STM32_F401XC",
 
     "features": {
         "bootmagic": true,
         "mousekey": true,
         "extrakey": true,
         "nkro": true,
+        "console": true
+    },
 
-        "console": false,
-        "command": false,
-        "backlight": false,
-        "audio": false
+    "eeprom": {
+        "driver": "i2c"
     },
 
     "build": {
@@ -37,13 +36,16 @@
         "cols": 16
     },
 
-    "debouce": 0,
+    "debounce": 0,
+
+    "bootmagic": {
+        "matrix": [0, 13]
+    },
 
     "indicators": {
         "num_lock": "A3",
         "caps_lock": "A2",
-        "scroll_lock": "A1",
-        "on_state": 1
+        "scroll_lock": "A1"
     },
 
     "layouts": {
