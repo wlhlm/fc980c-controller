@@ -1,4 +1,4 @@
-// Copyright 2023 Wilhelm Schuster
+// Copyright 2024 Wilhelm Schuster
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
