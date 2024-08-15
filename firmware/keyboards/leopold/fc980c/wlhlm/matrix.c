@@ -11,22 +11,22 @@
 static const pin_t row_pins[] = MATRIX_MUX_ROW_PINS;
 static const pin_t col_pins[] = MATRIX_MUX_COL_PINS;
 
-static inline void KEY_ENABLE_on(void) { writePinLow(MATRIX_KEY_ENABLE_PIN); }
-static inline void KEY_ENABLE_off(void) { writePinHigh(MATRIX_KEY_ENABLE_PIN); }
-static inline void KEY_HYS_on(void) { writePinHigh(MATRIX_KEY_HYS_PIN); }
-static inline void KEY_HYS_off(void) { writePinLow(MATRIX_KEY_HYS_PIN); }
+static inline void KEY_ENABLE_on(void) { gpio_write_pin_low(MATRIX_KEY_ENABLE_PIN); }
+static inline void KEY_ENABLE_off(void) { gpio_write_pin_high(MATRIX_KEY_ENABLE_PIN); }
+static inline void KEY_HYS_on(void) { gpio_write_pin_high(MATRIX_KEY_HYS_PIN); }
+static inline void KEY_HYS_off(void) { gpio_write_pin_low(MATRIX_KEY_HYS_PIN); }
 
 static void set_row(int row) {
-    writePin(row_pins[0], row & 0b00000001);
-    writePin(row_pins[1], row & 0b00000010);
-    writePin(row_pins[2], row & 0b00000100);
+    gpio_write_pin(row_pins[0], row & 0b00000001);
+    gpio_write_pin(row_pins[1], row & 0b00000010);
+    gpio_write_pin(row_pins[2], row & 0b00000100);
 }
 
 static void set_col(int col) {
-    writePin(col_pins[0], col & 0b00000001);
-    writePin(col_pins[1], col & 0b00000010);
-    writePin(col_pins[2], col & 0b00000100);
-    writePin(col_pins[3], col & 0b00001000);
+    gpio_write_pin(col_pins[0], col & 0b00000001);
+    gpio_write_pin(col_pins[1], col & 0b00000010);
+    gpio_write_pin(col_pins[2], col & 0b00000100);
+    gpio_write_pin(col_pins[3], col & 0b00001000);
 }
 
 static bool read_rows_on_col(matrix_row_t current_matrix[], int current_col) {
@@ -49,7 +49,7 @@ static bool read_rows_on_col(matrix_row_t current_matrix[], int current_col) {
         wait_us(2);
 
         // KEY_STATE is only valid for 20us after KEY_ENABLE
-        if (!readPin(MATRIX_KEY_STATE_PIN)) {
+        if (!gpio_read_pin(MATRIX_KEY_STATE_PIN)) {
             // pin LO, set col bit
             current_matrix[row_index] |= (MATRIX_ROW_SHIFTER << current_col);
         } else {
@@ -74,15 +74,15 @@ static bool read_rows_on_col(matrix_row_t current_matrix[], int current_col) {
 }
 
 void matrix_init_custom(void) {
-    setPinInput(MATRIX_KEY_STATE_PIN); // uses external pullup
-    setPinOutput(MATRIX_KEY_HYS_PIN);
-    setPinOutput(MATRIX_KEY_ENABLE_PIN);
+    gpio_set_pin_input(MATRIX_KEY_STATE_PIN); // uses external pullup
+    gpio_set_pin_output(MATRIX_KEY_HYS_PIN);
+    gpio_set_pin_output(MATRIX_KEY_ENABLE_PIN);
 
     for (int i = 0; i < ARRAY_SIZE(row_pins); i++) {
-        setPinOutput(row_pins[i]);
+        gpio_set_pin_output(row_pins[i]);
     }
     for (int i = 0; i < ARRAY_SIZE(col_pins); i++) {
-        setPinOutput(col_pins[i]);
+        gpio_set_pin_output(col_pins[i]);
     }
 
     KEY_ENABLE_off();
