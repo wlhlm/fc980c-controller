@@ -5,6 +5,8 @@
 
 #include "quantum.h"
 
+#include "actuation_point.h"
+
 typedef union {
     uint32_t raw;
     struct {

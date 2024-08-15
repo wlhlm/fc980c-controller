@@ -6,7 +6,6 @@
 #include "debug.h"
 
 #include QMK_KEYBOARD_H
-#include "actuation_point.h"
 
 extern keyboard_config_t fc980c_config;
 

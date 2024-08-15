@@ -5,8 +5,6 @@
 
 #include QMK_KEYBOARD_H
 
-#include "actuation_point.h"
-
 enum layer_names {
     _BASE_LAYER,
     _FUNCTION_LAYER
