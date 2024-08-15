@@ -16,7 +16,7 @@ See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_to
 
 To be able to flash the controller, it first has to be brought into bootloader mode. There are three ways this can be accomplished:
 
-- Hold the `BOOT0` button at the back of the controller board (also accessible through the case) pressed while plugging the board into USB.
+- Hold the `BOOT0` button at the back of the controller board (also accessible with the case installed) pressed while plugging the board into USB.
 - Hold the `Escape` key while plugging the board into USB (requires QMK to already be flashed onto the controller).
 - Press `Fn+Esc` (requires QMK to already be flashed onto the controller).
 
