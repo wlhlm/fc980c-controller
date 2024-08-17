@@ -17,7 +17,7 @@ void matrix_init_kb(void) {
 }
 
 void fc980c_eeconfig_update_kb(void) {
-    dprintf("saving rdac config (%"PRIu8") to qmk eeprom\n", fc980c_config.actuation_point_value);
+    dprintf("saving rdac config (%"PRId8") to qmk eeprom\n", fc980c_config.actuation_point_value);
     eeconfig_update_kb(fc980c_config.raw);
 }
 
