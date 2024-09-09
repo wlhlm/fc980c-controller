@@ -2596,7 +2596,7 @@
     (effects (font (size 2.54 2.54)) (justify left bottom))
     (uuid 70c6bddf-2bfc-4b6f-ac61-2353a976ff45)
   )
-  (text "Crystal frequency choosen\nbased on QMK default\nboard config\nGENERIC_STM32_F401XC"
+  (text "Crystal frequency chosen\nbased on QMK default\nboard config\nGENERIC_STM32_F401XC"
     (at 160.02 59.69 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid b787b6bb-18be-4eb7-9602-a7a638509958)
